@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "jsonfile": "^5.0.0"
   },
   "devDependencies": {},
   "scripts": {
