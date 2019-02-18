@@ -1,101 +1,110 @@
 const jsonfile = require("jsonfile");
-const file_path = "./DB/quotes.json";
-
 module.exports = app => {
+app.get("/quotes", (req, res) => {
+console.log("fetching all users");
 
-  app.put("/quotes", (req, res) => {
+// jsonfile reading
+jsonfile.readFile("./DB/quotes.json", function(err, content) {
+  // send file contents back to sender
+  res.send(content);
+});
+});}
 
-    let user;
-    let username = req.body.username;
-    let email    = req.query.email;
+// module.exports = app => {
 
-    jsonfile.readFile(file_path, function(err, content) {
-      for (var i = content.length - 1; i >= 0; i--) {
-        if (content[i].email === req.query.email) {
+//   app.put("/quotes", (req, res) => {
 
-          console.log("updated user " + req.query.email + " has now username : " + username);
+//     let user;
+//     let username = req.body.username;
+//     let email    = req.query.email;
 
-          user = content[i];
-          user.username = username;
+//     jsonfile.readFile(file_path, function(err, content) {
+//       for (var i = content.length - 1; i >= 0; i--) {
+//         if (content[i].email === req.query.email) {
 
-        }
-      }
+//           console.log("updated user " + req.query.email + " has now username : " + username);
 
-      jsonfile.writeFile(file_path, content, function(err) {
-        console.log(err);
-      });
+//           user = content[i];
+//           user.username = username;
 
-    });
-    res.send(user);
-  });
+//         }
+//       }
 
-  app.delete("/quotes/destroy", (req, res) => {
+//       jsonfile.writeFile(file_path, content, function(err) {
+//         console.log(err);
+//       });
 
-    let email = req.body.email;
+//     });
+//     res.send(user);
+//   });
 
-    jsonfile.readFile(file_path, function(err, content) {
+//   app.delete("/quotes/destroy", (req, res) => {
 
-      for (var i = content.length - 1; i >= 0; i--) {
+//     let email = req.body.email;
 
-        if (content[i].email === email) {
-          console.log("removing " + content[i].email + "from DB");
-          content.pop(i);
-        }
+//     jsonfile.readFile(file_path, function(err, content) {
 
-      }
+//       for (var i = content.length - 1; i >= 0; i--) {
 
-      jsonfile.writeFile(file_path, content, function(err) {
-        console.log(err);
-      });
+//         if (content[i].email === email) {
+//           console.log("removing " + content[i].email + "from DB");
+//           content.pop(i);
+//         }
 
-      res.sendStatus(200);
-    });
-  });
+//       }
 
-  app.get("/quotes", (req, res) => {
-    console.log("fetching all users");
+//       jsonfile.writeFile(file_path, content, function(err) {
+//         console.log(err);
+//       });
 
-    jsonfile.readFile(file_path, function(err, content) {
-      res.send(content);
-    });
-  });
+//       res.sendStatus(200);
+//     });
+//   });
 
-  app.get("/quotes", (req, res) => {
+//   app.get("/quotes", (req, res) => {
+//     console.log("fetching all users");
 
-    let user;
-    let username = req.query.username;
+//     jsonfile.readFile(file_path, function(err, content) {
+//       res.send(content);
+//     });
+//   });
 
-    jsonfile.readFile(file_path, function(err, content) {
+//   app.get("/quotes", (req, res) => {
 
-      for (var i = content.length - 1; i >= 0; i--) {
+//     let user;
+//     let username = req.query.username;
 
-        if (content[i].username === username) {
-          console.log("user found");
-          console.log(content[i]);
-          user = content[i];
-        }
+//     jsonfile.readFile(file_path, function(err, content) {
 
-      }
+//       for (var i = content.length - 1; i >= 0; i--) {
 
-      res.send(user);
-    });
-  });
+//         if (content[i].username === username) {
+//           console.log("user found");
+//           console.log(content[i]);
+//           user = content[i];
+//         }
 
-  app.post("/quotes/new", (req, res) => {
+//       }
 
-    let { email, username } = req.body;
+//       res.send(user);
+//     });
+//   });
 
-    jsonfile.readFile(file_path, function(err, content) {
+//   app.post("/quotes/new", (req, res) => {
 
-      content.push({ email, username });
+//     let { email, username } = req.body;
 
-      console.log("added " + email + "to DB");
+//     jsonfile.readFile(file_path, function(err, content) {
 
-      jsonfile.writeFile(file_path, content, function(err) {
-        console.log(err);
-      });
+//       content.push({ email, username });
 
-      res.sendStatus(200);
-    });
-  });
-};
+//       console.log("added " + email + "to DB");
+
+//       jsonfile.writeFile(file_path, content, function(err) {
+//         console.log(err);
+//       });
+
+//       res.sendStatus(200);
+//     });
+//   });
+// };

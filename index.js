@@ -1,4 +1,4 @@
-// import the NPM dependancy package
+/* // import the NPM dependancy package
 const express     = require("express");
 const bodyParser  = require("body-parser");
 
@@ -18,4 +18,17 @@ const PORT = 5000;
 // use the app variable and listen on the port
 app.listen(PORT, () => {
   console.log(`Server running`);
+}); */
+
+const express = require("express");
+const bodyParser = require("body-parser");
+
+const app = express();
+
+require("./routes/quoteRoutes") (app);
+
+const PORT = 5000;
+
+app.listen(PORT, () => {
+console.log('Server running');
 });

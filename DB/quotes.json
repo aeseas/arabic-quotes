@@ -1,1 +1,57 @@
-[{"email":"example@example.com","username":"Foo"},{"email":"example2@domain.com","username":"Bar"},{"email":"aisha.elsalawi@aol.com","username":"aisha"}]
+[{
+    "quote": "You sort of start thinking anything’s possible if you’ve got enough nerve.",
+    "name": "Ginny Weasly",
+    "book": "The Half-Blood Prince"
+}, {
+    "quote": "Just because you have the emotional range of a teaspoon doesn’t mean we all have.",
+    "name": "Hermione Granger",
+    "book": "The Order of the Phoenix"
+}, {
+    "quote": "Until the very end.",
+    "name": "James Potter",
+    "book": "The Deathly Hallows"
+}, {
+    "quote": "Dark and difficult times lie ahead. Soon we must all face the choice between what is right and what is easy. ",
+    "name": "Albus Dumbledore",
+    "book": "The Goblet of Fire"
+}, {
+    "quote": "We are only as strong as we are united, as weak as we are divided.",
+    "name": "Albus Dumbledore",
+    "book": "The Goblet of Fire"
+}, {
+    "quote": "Differences of habit and language are nothing at all if our aims are identical and our hearts are open.",
+    "name": "Albus Dumbledore",
+    "book": "The Goblet of Fire"
+}, {
+    "quote": "Numbing the pain for a while will make it worse when you finally feel it. ",
+    "name": "Albus Dumbledore",
+    "book": "The Goblet of Fire"
+}, {
+    "quote": "Understanding is the first step to acceptance, and only with acceptance can there be recovery.",
+    "name": "Albus Dumbledore",
+    "book": "The Goblet of Fire"
+}, {
+    "quote": "You think the dead we loved truly ever leave us? You think that we don’t recall them more clearly in times of great trouble?",
+    "name": "Albus Dumbledore",
+    "book": "The Prioner of Azkaban"
+}, {
+    "quote": "Do not pity the dead, Harry, pity the living, and above all those who live without love.",
+    "name": "Albus Dumbledore",
+    "book": "The Deathly Hallows"
+}, {
+    "quote": "It is the unknown we fear when we look upon death and darkness, nothing more.",
+    "name": "Albus Dumbledore",
+    "book": "The Half-Blood Prince"
+}, {
+    "quote": "Thoughts could leave deeper scars than almost anything else.",
+    "name": "Harry Potter",
+    "book": "The Order of the Phoenix"
+}, {
+    "quote": "The ones that love us never really leave us. You can always find them, in here.",
+    "name": "Sirius Black",
+    "book": "The Prisoner of Azkaban"
+}, {
+    "quote": "What's life without a little risk?",
+    "name": "Sirius Black",
+    "book": "The Order of the Phoenix"
+}]
