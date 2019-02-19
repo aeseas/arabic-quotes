@@ -6,7 +6,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "jsonfile": "^5.0.0"
+    "jsonfile": "^5.0.0",
+    "mongoose": "^5.4.13"
   },
   "devDependencies": {},
   "scripts": {

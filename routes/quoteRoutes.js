@@ -1,110 +1,55 @@
-const jsonfile = require("jsonfile");
+const express = require("express");
+const Quote = require('../models/models')
+const router = express.Router();
+const app = express();
+
 module.exports = app => {
-app.get("/quotes", (req, res) => {
-console.log("fetching all users");
+    router.get("./quotes", (req, res, next) => {
+        quote.find()
+            .exec()
+            .then(docs => {
+                console.log(docs);
+                res.status(200).json(docs);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({
+                    error: err
+                });
+            });
+    });
 
-// jsonfile reading
-jsonfile.readFile("./DB/quotes.json", function(err, content) {
-  // send file contents back to sender
-  res.send(content);
-});
-});}
+    router.post("./quotes/new", (req, res, next) => {
+        const quotes = new Quote({
+            quote: req.body.quote,
+            name: req.body.name,
+            book: req.body.book
+        })
+        quotes.save().then(result => {
+                console.log(result)
+            })
+            .catch(err => console.log(err))
+        res.status(201).json({
+            message: "Handling POST requests",
+            createdQuote: quotes
+        })
+        jsonfile.readFile("./DB/quotes.json", function (err, content) {
 
-// module.exports = app => {
+            content.push({
+                quote: quote,
+                name: name,
+                book: book
+            });
 
-//   app.put("/quotes", (req, res) => {
+            console.log("added " + quote + " to DB");
+            console.log("added " + name + " to DB");
+            console.log("added " + book + " to DB");
 
-//     let user;
-//     let username = req.body.username;
-//     let email    = req.query.email;
+            jsonfile.writeFile("./DB/quotes.json", content, function (err) {
+                console.log(err);
+            });
 
-//     jsonfile.readFile(file_path, function(err, content) {
-//       for (var i = content.length - 1; i >= 0; i--) {
-//         if (content[i].email === req.query.email) {
-
-//           console.log("updated user " + req.query.email + " has now username : " + username);
-
-//           user = content[i];
-//           user.username = username;
-
-//         }
-//       }
-
-//       jsonfile.writeFile(file_path, content, function(err) {
-//         console.log(err);
-//       });
-
-//     });
-//     res.send(user);
-//   });
-
-//   app.delete("/quotes/destroy", (req, res) => {
-
-//     let email = req.body.email;
-
-//     jsonfile.readFile(file_path, function(err, content) {
-
-//       for (var i = content.length - 1; i >= 0; i--) {
-
-//         if (content[i].email === email) {
-//           console.log("removing " + content[i].email + "from DB");
-//           content.pop(i);
-//         }
-
-//       }
-
-//       jsonfile.writeFile(file_path, content, function(err) {
-//         console.log(err);
-//       });
-
-//       res.sendStatus(200);
-//     });
-//   });
-
-//   app.get("/quotes", (req, res) => {
-//     console.log("fetching all users");
-
-//     jsonfile.readFile(file_path, function(err, content) {
-//       res.send(content);
-//     });
-//   });
-
-//   app.get("/quotes", (req, res) => {
-
-//     let user;
-//     let username = req.query.username;
-
-//     jsonfile.readFile(file_path, function(err, content) {
-
-//       for (var i = content.length - 1; i >= 0; i--) {
-
-//         if (content[i].username === username) {
-//           console.log("user found");
-//           console.log(content[i]);
-//           user = content[i];
-//         }
-
-//       }
-
-//       res.send(user);
-//     });
-//   });
-
-//   app.post("/quotes/new", (req, res) => {
-
-//     let { email, username } = req.body;
-
-//     jsonfile.readFile(file_path, function(err, content) {
-
-//       content.push({ email, username });
-
-//       console.log("added " + email + "to DB");
-
-//       jsonfile.writeFile(file_path, content, function(err) {
-//         console.log(err);
-//       });
-
-//       res.sendStatus(200);
-//     });
-//   });
-// };
+            res.sendStatus(200);
+        });
+    });
+}
