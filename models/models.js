@@ -5,4 +5,5 @@ let quoteSchema = new mongoose.Schema({
     name: String,
     book: String
 })
+
 module.exports = mongoose.model('Quote', quoteSchema)

@@ -4,8 +4,13 @@ const router = express.Router();
 const app = express();
 
 module.exports = app => {
-    router.get("./quotes", (req, res, next) => {
-        quote.find()
+    //GET
+    router.get("/", (req, res, next) => {
+        res.status(200).json({
+            message: "Handeling Get request to /quotes"
+        });
+
+        Quote.find()
             .exec()
             .then(docs => {
                 console.log(docs);
@@ -19,35 +24,54 @@ module.exports = app => {
             });
     });
 
+    //POST
     router.post("./quotes/new", (req, res, next) => {
-        const quotes = new Quote({
+        //Y
+        const quote = new Quote({
             quote: req.body.quote,
             name: req.body.name,
             book: req.body.book
+        });
+        quote.save().then(result => {
+            console.log(result)
         })
-        quotes.save().then(result => {
-                console.log(result)
-            })
-            .catch(err => console.log(err))
+        .catch(err =>console.log(err))
         res.status(201).json({
-            message: "Handling POST requests",
-            createdQuote: quotes
+            message: "Handeling POST request to /quotes",
+            createdQuote: quote
         })
-        jsonfile.readFile("./DB/quotes.json", function (err, content) {
 
-            content.push({
-                quote: quote,
-                name: name,
-                book: book
-            });
+
+        
+        //C
+        // const quotes = new Quote({
+        //     quote: req.body.quote,
+        //     name: req.body.name,
+        //     book: req.body.book
+        // })
+        // quotes.save().then(result => {
+        //         console.log(result)
+        //     })
+        //     .catch(err => console.log(err))
+        // res.status(201).json({
+        //     message: "Handling POST requests",
+        //     createdQuote: quotes
+        // // })
+        // jsonfile.readFile("./DB/quotes.json", function (err, content) {
+
+        //     content.push({
+        //         quote: quote,
+        //         name: name,
+        //         book: book
+        //     });
 
             console.log("added " + quote + " to DB");
             console.log("added " + name + " to DB");
             console.log("added " + book + " to DB");
 
-            jsonfile.writeFile("./DB/quotes.json", content, function (err) {
-                console.log(err);
-            });
+            // jsonfile.writeFile("./DB/quotes.json", content, function (err) {
+            //     console.log(err);
+            // });
 
             res.sendStatus(200);
         });
