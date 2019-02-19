@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+<<<<<<< HEAD
+=======
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonfile": "^5.0.0",
+    "mongoose": "^5.4.13"
+  },
+  "devDependencies": {},
+>>>>>>> e5986bf282efd5c03fb00659ebd2e2b49a2866fa
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +25,7 @@
   "bugs": {
     "url": "https://github.com/aeseas/becode-quotes-api/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/aeseas/becode-quotes-api#readme",
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -24,4 +35,7 @@
     "jsonfile": "^5.0.0",
     "mongoose": "^5.4.13"
   }
+=======
+  "homepage": "https://github.com/aeseas/becode-quotes-api#readme"
+>>>>>>> e5986bf282efd5c03fb00659ebd2e2b49a2866fa
 }
