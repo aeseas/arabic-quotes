@@ -1,79 +1,75 @@
 const express = require("express");
-const Quote = require('../models/models')
-const router = express.Router();
-const app = express();
+let Quote = require('../models/model')
 
 module.exports = app => {
-    //GET
-    router.get("/", (req, res, next) => {
-        res.status(200).json({
-            message: "Handeling Get request to /quotes"
-        });
 
-        Quote.find()
-            .exec()
-            .then(docs => {
-                console.log(docs);
-                res.status(200).json(docs);
-            })
-            .catch(err => {
-                console.log(err);
-                res.status(500).json({
-                    error: err
-                });
-            });
+    app.get('/quotes', function (req, res) {
+        Quote.find((err, quotes) => {
+            if (err) {
+                res.send(err)
+            }
+            res.json(quotes)
+        })
     });
 
-    //POST
-    router.post("./quotes/new", (req, res, next) => {
-        //Y
-        const quote = new Quote({
+    app.post("/quotes/new", (req, res) => {
+
+        let newQuote = new Quote({
             quote: req.body.quote,
-            name: req.body.name,
-            book: req.body.book
+            name: req.body.name
         });
-        quote.save().then(result => {
-            console.log(result)
-        })
-        .catch(err =>console.log(err))
-        res.status(201).json({
-            message: "Handeling POST request to /quotes",
-            createdQuote: quote
-        })
 
+        newQuote.save(function (err) {
+            let quote = req.body.quote
+            let name = req.body.name
+            if (err) return handleError(err);
 
-        
-        //C
-        // const quotes = new Quote({
-        //     quote: req.body.quote,
-        //     name: req.body.name,
-        //     book: req.body.book
-        // })
-        // quotes.save().then(result => {
-        //         console.log(result)
-        //     })
-        //     .catch(err => console.log(err))
-        // res.status(201).json({
-        //     message: "Handling POST requests",
-        //     createdQuote: quotes
-        // // })
-        // jsonfile.readFile("./DB/quotes.json", function (err, content) {
-
-        //     content.push({
-        //         quote: quote,
-        //         name: name,
-        //         book: book
-        //     });
-
-            console.log("added " + quote + " to DB");
-            console.log("added " + name + " to DB");
-            console.log("added " + book + " to DB");
-
-            // jsonfile.writeFile("./DB/quotes.json", content, function (err) {
-            //     console.log(err);
-            // });
+            console.log("")
+            console.log('Quote successfully saved!');
+            console.log("quote: " + quote +
+                "\nby: " + name);
 
             res.sendStatus(200);
         });
     });
-}
+
+    app.get("/quotes/read", (req, res) => {
+        // get the Quote by id
+        Quote.find({
+            _id: req.query.id
+        }, function (err, Quote) {
+            if (err) throw err;
+            //console.log(Quote);
+            res.send(Quote);
+        });
+    });
+
+    app.put("/quotes/update/:quoteId", (req, res) => {
+        // find the Quote by id
+        Quote.findOneAndUpdate({
+            _id: req.params.quoteId
+        }, {
+            quote: req.body.quote,
+            name: req.body.name,
+        }, function (err, Quote) {
+            if (err) throw err;
+
+            console.log(Quote, 'Quote successfully updated!');
+
+            res.sendStatus(200);
+        });
+    })
+
+    app.delete("/quotes/:quoteId", (req, res) => {
+        Quote.findByIdAndDelete({
+            _id: req.params.quoteId
+        }, function (err) {
+            if (err) throw err;
+
+            console.log("")
+            console.log("Quote succesfully deleted!");
+
+            res.sendStatus(200);
+        })
+    })
+};
