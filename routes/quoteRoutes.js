@@ -35,11 +35,23 @@ module.exports = app => {
         });
     });
 
-    //GET
+    //GET BY ID
     app.get("/quotes/read", (req, res) => {
         // get the Quote by id
         Quote.find({
             _id: req.query.id
+        }, function (err, Quote) {
+            if (err) throw err;
+            //console.log(Quote);
+            res.send(Quote);
+        });
+    });
+
+    //GET BY NAME
+    app.get("/quotes/:quoteName", (req, res) => {
+        // get the Quote by id
+        Quote.find({
+            name : req.query.quoteName
         }, function (err, Quote) {
             if (err) throw err;
             //console.log(Quote);
