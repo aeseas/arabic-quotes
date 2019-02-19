@@ -21,6 +21,7 @@
     "babel-preset-es2015": "^6.24.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "jsonfile": "^5.0.0"
+    "jsonfile": "^5.0.0",
+    "mongoose": "^5.4.13"
   }
 }
