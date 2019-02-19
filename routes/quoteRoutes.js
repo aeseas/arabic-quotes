@@ -3,6 +3,7 @@ let Quote = require('../models/model')
 
 module.exports = app => {
 
+    //GET
     app.get('/quotes', function (req, res) {
         Quote.find((err, quotes) => {
             if (err) {
@@ -12,6 +13,7 @@ module.exports = app => {
         })
     });
 
+    //POST
     app.post("/quotes/new", (req, res) => {
 
         let newQuote = new Quote({
@@ -33,6 +35,7 @@ module.exports = app => {
         });
     });
 
+    //GET
     app.get("/quotes/read", (req, res) => {
         // get the Quote by id
         Quote.find({
@@ -44,6 +47,7 @@ module.exports = app => {
         });
     });
 
+    //PUT
     app.put("/quotes/update/:quoteId", (req, res) => {
         // find the Quote by id
         Quote.findOneAndUpdate({
@@ -60,6 +64,7 @@ module.exports = app => {
         });
     })
 
+    //DELETE
     app.delete("/quotes/:quoteId", (req, res) => {
         Quote.findByIdAndDelete({
             _id: req.params.quoteId
