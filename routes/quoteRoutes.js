@@ -17,19 +17,22 @@ module.exports = app => {
     app.post("/quotes/new", (req, res) => {
 
         let newQuote = new Quote({
-            quote: req.body.quote,
+            quotear: req.body.quotear,
+            quoteen: req.body.quoteen,
             name: req.body.name
         });
 
         newQuote.save(function (err) {
-            let quote = req.body.quote
-            let name = req.body.name
+            let quoteAr = req.body.quotear;
+            let quoteEn = req.body.quoteen;
+            let name = req.body.name;
             if (err) return handleError(err);
 
             console.log("")
             console.log('Quote successfully saved!');
-            console.log("quote: " + quote +
-                "\nby: " + name);
+            console.log("Arab quote: " + quoteAr +
+                "\nEnglish translation: " + quoteEn +
+                "\nBy: " + name);
 
             res.sendStatus(200);
         });
@@ -48,12 +51,13 @@ module.exports = app => {
     });
 
     //GET BY NAME
-    app.get("/quotes/:quoteName", (req, res) => {
-        // get the Quote by id
+    app.get("/quotes/:name", (req, res) => {
+        // get the Quote by name
         Quote.find({
-            name : req.query.quoteName
+            name : req.params.name
         }, function (err, Quote) {
             if (err) throw err;
+
             //console.log(Quote);
             res.send(Quote);
         });
@@ -65,7 +69,8 @@ module.exports = app => {
         Quote.findOneAndUpdate({
             _id: req.params.quoteId
         }, {
-            quote: req.body.quote,
+            quoteAr: req.body.quotear,
+            quoteEn: req.body.quoteen,
             name: req.body.name,
         }, function (err, Quote) {
             if (err) throw err;

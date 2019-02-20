@@ -3,6 +3,9 @@ const bodyParser  = require("body-parser");
 const app = express();
 const mongoose = require("mongoose")
 
+let cors = require("cors")
+app.use(cors())
+
 app.use(bodyParser.json());
 require("./routes/quoteRoutes") (app);
 
