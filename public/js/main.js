@@ -52,7 +52,7 @@ document.querySelector('#create').addEventListener('click', function(e){
     "\n" + author + " is added to your database" 
     )
 
-    fetch('quote/create', addQuote)
+    fetch('quotes/create', addQuote)
 })
 
 
