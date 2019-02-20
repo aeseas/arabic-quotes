@@ -39,6 +39,7 @@ document.querySelector('#create').addEventListener('click', function(e){
 
     const addQuote = {
         method: 'POST',
+        mode : "cors",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({
             "quotear":`${quoteAr}`,
