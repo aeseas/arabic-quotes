@@ -35,7 +35,7 @@
 //     getAuthor(data);
 // }
 window.onload = () => {
-fetch ("http://localhost:5000/quotes")
+fetch ("https://secret-tor-72530.herokuapp.com/quotes")
     .then(response => response.json())
     .then(json => getQuote(json))
 }
