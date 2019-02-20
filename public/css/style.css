@@ -1,27 +1,16 @@
-
 body {
-    
     margin: 0 auto;
     font-family: 'Oswald', sans-serif;
 }
 
-.content {
-    margin: auto;
-    max-width: 800px;
-    padding: 10px;
-    position: relative;
-    height: 100vh;
-    padding: 30px;
-}
-
-/* Title */
+/* ----- Title ----- */
 h1 {
-
     text-align: center;
     font-size: 3em;
     font-weight: 400;
     position: relative;
     padding-bottom: 20px;
+    margin-top: 0;
 }
 
 h1::after {
@@ -36,35 +25,26 @@ h1::after {
     left: 20%;
 }
 
-/* Btn */
-.btn {
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 300;
-    margin-top: 50px;
-    margin-bottom: 60px;
-    transition: all .2s ease-in-out;
+/* ----- CONTENT -----  */
+.content {
+    margin: auto;
+    max-width: 800px;
+    position: relative;
+    padding: 30px;
+    margin-bottom: 0;
 }
-
-.btn:hover {
-    color: #4E1C00;
-    font-weight: 300;
-    transform: scale(1.1);
-}
-
 /* Arabic Quotes*/
 h2 {
+    margin-top: 80px;
     text-align: right;
     font-size: 2.5em;
     line-height: .9em;
     font-family: 'Scheherazade', serif;
-    margin-bottom: 70px;
 }
 
 /* English Quotes */
 h3 {
     font-weight: 300;
-    margin-bottom: 70px;
 }
 
 /* Author */
@@ -72,5 +52,63 @@ h4 {
     text-align: right;
     font-weight: 300;
     color: #4E1C00;
+    line-height: 0;
 }
 
+/* ----- REQUEST -----*/
+.request {
+    max-width: 800px; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Title */
+.reqTitle {
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: lightgray;
+    margin-top: 0;
+}
+
+/* Btn */
+.btn {
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: .2s ease-in-out;
+}
+
+.btn:hover {
+    color: #4E1C00;
+    transform: scale(1.1);
+}
+
+.btn:focus {
+    outline: none;
+    border: none;
+}
+/* input */
+input {
+    width: 60%;
+    display: block;
+    margin: auto;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    margin-bottom: 10px;
+
+}
+input:first-child{
+    margin-top: 10px;
+}
+input[placeholder]{
+    text-align: center;
+}
+
+#create {
+    margin: auto;
+    width: 30%;
+}

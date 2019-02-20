@@ -31,7 +31,58 @@ fetch ("https://secret-tor-72530.herokuapp.com/quotes")
         document.querySelector(".btn").addEventListener("click", handleClickButton);
     }
 
+// CREATE
+document.querySelector('#create').addEventListener('click', function(e){
+    let quoteAr = document.getElementById("quoteArabic").value;
+    let quoteEn = document.getElementById("quoteEnglish").value;
+    let author = document.getElementById("author").value;
 
+    const addQuote = {
+        method: 'POST',
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({
+            "quotear":`${quoteAr}`,
+            "quoteen": `${quoteEn}`,
+            "name": `${author}`
+        })
+    }
+
+    console.log(quoteAr + " is added to your database" +
+    "\n" + quoteEn + " is added to your database" +
+    "\n" + author + " is added to your database" 
+    )
+
+    fetch('quote/create', addQuote)
+})
+
+
+
+
+
+
+
+
+// document.getElementById('create').addEventListener('click', function(e){
+//     //e.preventDefault();
+
+//     let quote = document.getElementById('quote').value;
+//     let author = document.getElementById('author').value;
+
+//     if (quote == ""){
+//         quote = "Unknown Quote";
+//     };
+//     if (author == ""){
+//         author = "Unknown Author";
+//     };
+
+//     const options = { 
+//         method: 'POST',
+//         headers: {'content-type': 'application/json'},
+//         body: JSON.stringify({'quotear':`${quote}`,'author':`${author}`})
+//     };
+
+//     fetch('/quote/create',options);
+// });
 
 
 
