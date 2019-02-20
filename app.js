@@ -9,14 +9,16 @@ app.use(cors())
 app.use(bodyParser.json());
 require("./routes/quoteRoutes") (app);
 
-const PORT    = 5000;
+const PORT    = process.env.PORT||5000;
 
 app.listen(PORT, () => {
     console.log(`Server running`);
   });
 
+  const uri = process.env.MONGODB_URI || "mongodb+srv://root:root@cluster0-p8rby.mongodb.net/quoteDB"
   mongoose.connect(
-    "mongodb+srv://root:root@cluster0-p8rby.mongodb.net/quoteDB", {useNewUrlParser:true} 
+    uri, {useNewUrlParser:true}
+    // "mongodb+srv://root:root@cluster0-p8rby.mongodb.net/quoteDB", {useNewUrlParser:true} 
 );
 
 let db = mongoose.connection;
