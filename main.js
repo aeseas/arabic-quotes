@@ -64,7 +64,7 @@ fetch ("http://localhost:5000/quotes")
             content.appendChild(author)
             author.textContent = `- ${randomQuote.name}`
         }
-        document.querySelector("button").addEventListener("click", handleClickButton);
+        document.querySelector(".btn").addEventListener("click", handleClickButton);
     }
 
 
