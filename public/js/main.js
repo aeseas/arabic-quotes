@@ -38,7 +38,7 @@ document.querySelector('#create').addEventListener('click', function(e){
     let author = document.getElementById("author").value;
 
     const addQuote = {
-        method: 'POST',
+        method: 'post',
         mode : "cors",
         headers: {"content-type": "application/json"},
         body: JSON.stringify({
