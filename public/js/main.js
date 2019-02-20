@@ -1,39 +1,3 @@
-    // //FETCH
-    // fetch('http://localhost:5000/quotes')
-    // .then(r => r.json())
-    // .then(json => parseQuote(json))
-
-
-// const getQuoteArb = (x) => {
-//     console.log(2, x)
-//     const arItem = document.createElement('li')
-//     arItem.textContent = x.quotear;
-//     console.log(x.quotear)
-
-//     document.querySelector('ul').appendChild(arItem)
-// }
-
-// const getQuoteEng = (x) => {
-//     console.log(4, x)
-//     const engItem = document.createElement('li')
-//     engItem.textContent = x.quoteen
-//     console.log(x.quoteen)
-
-//     document.querySelector('ul').appendChild(engItem)
-// }
-// const getAuthor = (x) => {
-//     console.log(5, x)
-//     const authorItem = document.createElement(`li`)
-//     authorItem.textContent = `- ${x.name}`;
-
-//     document.querySelector(`ul`).appendChild(authorItem)
-// }
-
-// const parseQuote = (data) => {
-//     getQuoteArb(data)
-//     getQuoteEng(data);
-//     getAuthor(data);
-// }
 window.onload = () => {
 fetch ("https://secret-tor-72530.herokuapp.com/quotes")
     .then(response => response.json())

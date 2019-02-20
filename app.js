@@ -6,6 +6,9 @@ const mongoose = require("mongoose")
 let cors = require("cors")
 app.use(cors())
 
+app.set('view engine', 'ejs');
+app.use(express.static('public'))
+
 app.use(bodyParser.json());
 require("./routes/quoteRoutes") (app);
 

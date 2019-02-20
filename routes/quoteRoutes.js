@@ -3,6 +3,11 @@ let Quote = require('../models/model')
 
 module.exports = app => {
 
+    //index
+    app.get('/', (req, res) => {
+        res.render('index')
+    })
+
     //GET
     app.get('/quotes', function (req, res) {
         Quote.find((err, quotes) => {
