@@ -8,8 +8,15 @@ module.exports = app => {
         res.render('index')
     })
 
+    //van arno
+    app.get('/quotes', function(req, res, next) {
+        Quote.find({}).then(function(quotes) {
+            res.send(quotes)
+        })
+    })
+
     //GET BY ID
-    app.get('/quotes/:quoteId', function (req, res) {
+    app.get('/quotes/:id', function (req, res) {
         Quote.find((err, quotes) => {
             if (err) {
                 res.send(err)
@@ -56,17 +63,17 @@ module.exports = app => {
     });
 
     //GET BY NAME
-    app.get("/quotes/:name", (req, res) => {
-        // get the Quote by name
-        Quote.find({
-            name : req.params.name
-        }, function (err, Quote) {
-            if (err) throw err;
+    // app.get("/quotes/:name", (req, res) => {
+    //     // get the Quote by name
+    //     Quote.find({
+    //         name : req.params.name
+    //     }, function (err, Quote) {
+    //         if (err) throw err;
 
-            //console.log(Quote);
-            res.send(Quote);
-        });
-    });
+    //         //console.log(Quote);
+    //         res.send(Quote);
+    //     });
+    // });
 
     //PUT
     app.put("/quotes/update/:quoteId", (req, res) => {
@@ -87,30 +94,30 @@ module.exports = app => {
     })
 
     //DELETE
-    // app.delete("/quotes/:quoteId", (req, res) => {
-    //     Quote.findByIdAndDelete({
-    //         _id: req.params.quoteId
-    //     }, function (err) {
-    //         if (err) throw err;
-
-    //         console.log("")
-    //         console.log("Quote succesfully deleted!");
-
-    //         res.sendStatus(200);
-    //     })
-    // })
-
-    // DELETE
-    app.delete("/quotes/destroy/:quoteId", (req, res) => {
-        let id = req.params.quoteId;
-
+    app.delete("/quotes/:quoteId", (req, res) => {
         Quote.findByIdAndDelete({
-            _id: id
-        }, (err) =>{
-            if (err) {
-                return res.sendStatus(500);
-            }
-            res.sendStatus(200)
+            _id: req.params.quoteId
+        }, function (err) {
+            if (err) throw err;
+
+            console.log("")
+            console.log("Quote succesfully deleted!");
+
+            res.sendStatus(200);
         })
     })
+
+    // DELETE
+    // app.delete("/quotes/destroy/:quoteId", (req, res) => {
+    //     let id = req.params.quoteId;
+
+    //     Quote.findByIdAndDelete({
+    //         _id: id
+    //     }, (err) =>{
+    //         if (err) {
+    //             return res.sendStatus(500);
+    //         }
+    //         res.sendStatus(200)
+    //     })
+    // })
 };

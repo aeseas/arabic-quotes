@@ -1,10 +1,9 @@
 window.onload = () => {
-    fetch ("https://secret-tor-72530.herokuapp.com/quotes")
+    fetch("http://secret-tor-72530.herokuapp.com/quotes")
         .then(response => response.json())
         .then(json => getQuote(json))
     }
 
-    
     // RANDOM QUOTE
     const getQuote = (quotes) => {
         console.log(quotes);
@@ -13,7 +12,7 @@ window.onload = () => {
         const quoteAr = document.querySelector('h2')
         const quoteEn = document.querySelector('h3')
         const content = document.querySelector(".content")
-        
+    
         const handleClickButton = () => {
             //get random
             const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -43,6 +42,7 @@ window.onload = () => {
     document.querySelector('#create').addEventListener('click', function(e){
         e.preventDefault()
 
+        // GET ELEMENTS
         let quoteAr = document.getElementById("quoteArabic").value;
         let quoteEn = document.getElementById("quoteEnglish").value;
         let author = document.getElementById("author").value;
