@@ -8,8 +8,8 @@ module.exports = app => {
         res.render('index')
     })
 
-    //GET
-    app.get('/quotes', function (req, res) {
+    //GET BY ID
+    app.get('/quotes/:quoteId', function (req, res) {
         Quote.find((err, quotes) => {
             if (err) {
                 res.send(err)
@@ -87,16 +87,30 @@ module.exports = app => {
     })
 
     //DELETE
-    app.delete("/quotes/:quoteId", (req, res) => {
+    // app.delete("/quotes/:quoteId", (req, res) => {
+    //     Quote.findByIdAndDelete({
+    //         _id: req.params.quoteId
+    //     }, function (err) {
+    //         if (err) throw err;
+
+    //         console.log("")
+    //         console.log("Quote succesfully deleted!");
+
+    //         res.sendStatus(200);
+    //     })
+    // })
+
+    // DELETE
+    app.delete("/quotes/destroy/:quoteId", (req, res) => {
+        let id = req.params.quoteId;
+
         Quote.findByIdAndDelete({
-            _id: req.params.quoteId
-        }, function (err) {
-            if (err) throw err;
-
-            console.log("")
-            console.log("Quote succesfully deleted!");
-
-            res.sendStatus(200);
+            _id: id
+        }, (err) =>{
+            if (err) {
+                return res.sendStatus(500);
+            }
+            res.sendStatus(200)
         })
     })
 };
