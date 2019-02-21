@@ -31,8 +31,9 @@ fetch ("https://secret-tor-72530.herokuapp.com/quotes")
         document.querySelector(".btn").addEventListener("click", handleClickButton);
     }
 
-// CREATE
+// CREATE QUOTE
 document.querySelector('#create').addEventListener('click', function(e){
+    e.preventDefault()
     let quoteAr = document.getElementById("quoteArabic").value;
     let quoteEn = document.getElementById("quoteEnglish").value;
     let author = document.getElementById("author").value;
@@ -41,13 +42,14 @@ document.querySelector('#create').addEventListener('click', function(e){
         method: 'post',
         mode : "cors",
         headers: {"content-type": "application/json"},
+        // converts a JavaScript object or value to a JSON string, 
         body: JSON.stringify({
             "quotear":`${quoteAr}`,
             "quoteen": `${quoteEn}`,
             "name": `${author}`
         })
-    }
-
+    }    
+    
     console.log(quoteAr + " is added to your database" +
     "\n" + quoteEn + " is added to your database" +
     "\n" + author + " is added to your database" 
