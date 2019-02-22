@@ -67,3 +67,6 @@ window.onload = () => {
     
         fetch('quotes/create', addQuote)
     })
+
+    //DELETE
+    
