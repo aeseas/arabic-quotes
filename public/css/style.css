@@ -83,16 +83,17 @@ h4 {
     justify-content: space-between;
 }
 
-/* Title */
+/* REQUEST TITLE */
 .reqTitle {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
     margin-top: 20px;
+    text-decoration: uppercase;
 }
 
-/* Btn */
+/* BUTTON GET A RANDOM QUOTE */
 .btn {
     margin: auto;
     text-align: center;
@@ -117,6 +118,7 @@ h4 {
     border: none;
 }
 
+
 /* input */
 input {
     width: 60%;
@@ -125,7 +127,7 @@ input {
     padding: 5px;
     border: 1px solid #4E1C00;
     margin-bottom: 10px;
-
+    transition: .2s ease-in-out;
 }
 input:first-child{
     margin-top: 10px;
@@ -133,6 +135,16 @@ input:first-child{
 input[placeholder]{
     text-align: center;
     color: #4E1C00;
+}
+
+input:focus {
+    outline: none !important;
+    border: 1px solid #1D31FA;
+}
+
+input:hover {
+    transform: scale(1.1);
+    border: 1px solid #1D31FA;
 }
 
 /* CREATE BUTTON */
