@@ -19,7 +19,7 @@ module.exports = app => {
     })
 
     //POST
-    app.post('/quotes', (req, res) => {
+    app.post('/quotes/create', (req, res) => {
         console.log("posting a new quote");
         const quote = new Quote({
             quotear: req.body.quotear,
