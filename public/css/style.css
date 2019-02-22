@@ -4,7 +4,6 @@ body {
     max-width: 800px;
     background-color: #FAFAFA;
     color: #1F1F1F;
-
 }
 
 /* ----- Title ----- */
@@ -173,11 +172,3 @@ input:hover {
 }
 
 
-/* ---- MEDIA QUERY WRONG WAY I'M SORRY */
-
-@media only screen 
-and (max-width : 320px) {
-    .content {
-        height: 100vh;
-    }
-}
