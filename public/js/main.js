@@ -5,26 +5,25 @@ window.onload = () => {
     .catch(error => alert('Error:', error));
 }
 
-    // RANDOM QUOTE
+
+    // VISIBLE QUOTE
     const getQuote = (quotes) => {
         console.log(quotes);
 
-        const writeQuote = () => {
+        //GENERATE RANDOM QUOTE
+        const handleClickButton = () => {
             const author = document.querySelector('h4')
             const quoteAr = document.querySelector('h2')
             const quoteEn = document.querySelector('h3')
             const content = document.querySelector(".content")
 
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-        }
-
-        const destroyBtn = querySelector("#delete")
-
-        const handleClickButton = () => {
             //get random
             const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            console.log(randomQuote)
 
-    
+            //Append ID
+            content.setAttribute('quotes', randomQuote._id);
+
             //Quote Arabic h2
             content.appendChild(quoteAr)
             quoteAr.textContent = `${randomQuote.quotear}`;
@@ -37,11 +36,27 @@ window.onload = () => {
             content.appendChild(author)
             author.textContent = `- ${randomQuote.name}`
         }
-    
-        handleClickButton();
-        
-        document.querySelector(".btn").addEventListener("click", handleClickButton);
-    }
+
+            handleClickButton();
+            
+
+        const handleClickDestroy = () => {
+            const content = document.querySelector('.content');
+            const contentId = content.getAttribute('quotes');
+            // console.log(contentId)
+
+            const destroyQuote = {
+                method: 'delete',
+                mode : "cors",
+                headers: {"content-type": "application/json"}
+                } 
+
+                fetch(`quotes/delete/${contentId}`, destroyQuote)
+            }
+            
+            document.querySelector("#delete").addEventListener("click", handleClickDestroy)
+            document.querySelector(".btn").addEventListener("click", handleClickButton);
+        };
     
     
     // ----- CREATE QUOTE

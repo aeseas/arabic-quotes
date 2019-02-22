@@ -35,7 +35,7 @@ module.exports = app => {
     })
 
     // * DELETE 
-    app.delete("/quotes/:quoteId", (req, res) => {
+    app.delete("/quotes/delete/:quoteId", (req, res) => {
         console.log("deleting a quote");
         console.log(req.body);
         let id = req.params.quoteId;

@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     font-family: 'Oswald', sans-serif;
+    max-width: 800px;
 }
 
 /* ----- Title ----- */
@@ -28,7 +29,6 @@ h1::after {
 /* ----- CONTENT -----  */
 .content {
     margin: auto;
-    max-width: 800px;
     position: relative;
     padding: 30px;
     margin-bottom: 0;
@@ -40,6 +40,9 @@ h1::after {
     margin: 0;
     color: lightgray;
     transition: .2s ease-in-out;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 300;
 }
 
 #delete:hover {
@@ -95,6 +98,8 @@ h4 {
     text-transform: uppercase;
     transition: .2s ease-in-out;
     cursor: default;
+    border: 1px solid black;
+    font-size: 1em;
 }
 
 .btn:hover {
@@ -106,6 +111,7 @@ h4 {
     outline: none;
     border: none;
 }
+
 /* input */
 input {
     width: 60%;
@@ -123,7 +129,24 @@ input[placeholder]{
     text-align: center;
 }
 
+
+/* CREATE BUTTON */
 #create {
-    margin: auto;
-    width: 30%;
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    transition: .2s ease-in-out;
+    cursor: default;
+    border: 1px solid black;
+    font-size: 1em;
+}
+
+#create:hover {
+    color: #4E1C00;
+    transform: scale(1.1);
+}
+
+#create:focus {
+    outline: none;
+    border: none;
 }
