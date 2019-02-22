@@ -2,6 +2,9 @@ body {
     margin: 0 auto;
     font-family: 'Oswald', sans-serif;
     max-width: 800px;
+    background-color: #FAFAFA;
+    color: #1F1F1F;
+
 }
 
 /* ----- Title ----- */
@@ -46,8 +49,7 @@ h1::after {
 }
 
 #delete:hover {
-    color: #4E1C00;
-    transform: scale(1.1);
+    color: #1D31FA;
 }
 
 /* Arabic Quotes*/
@@ -87,12 +89,12 @@ h4 {
     font-size: 3em;
     font-family: 'Oswald', sans-serif;
     font-weight: 400;
-    color: lightgray;
-    margin-top: 0;
+    margin-top: 20px;
 }
 
 /* Btn */
 .btn {
+    margin: auto;
     text-align: center;
     font-weight: 300;
     text-transform: uppercase;
@@ -100,11 +102,14 @@ h4 {
     cursor: default;
     border: 1px solid black;
     font-size: 1em;
+    width: 40%;
+    margin-bottom: 20px;
 }
 
 .btn:hover {
-    color: #4E1C00;
-    transform: scale(1.1);
+    color: #1D31FA;
+    transform: scale(0.9);
+    border: 1px solid #1D31FA;
 }
 
 .btn:focus {
@@ -118,7 +123,7 @@ input {
     display: block;
     margin: auto;
     padding: 5px;
-    border: 1px solid lightgrey;
+    border: 1px solid #4E1C00;
     margin-bottom: 10px;
 
 }
@@ -127,11 +132,12 @@ input:first-child{
 }
 input[placeholder]{
     text-align: center;
+    color: #4E1C00;
 }
-
 
 /* CREATE BUTTON */
 #create {
+    margin: auto;
     text-align: center;
     font-weight: 300;
     text-transform: uppercase;
@@ -139,11 +145,14 @@ input[placeholder]{
     cursor: default;
     border: 1px solid black;
     font-size: 1em;
+    width: 40%;
+    margin-top: 20px;
 }
 
 #create:hover {
-    color: #4E1C00;
-    transform: scale(1.1);
+    color: #1D31FA;
+    transform: scale(0.9);
+    border: 1px solid #1D31FA;
 }
 
 #create:focus {
