@@ -1,5 +1,5 @@
 window.onload = () => {
-    fetch("http://secret-tor-72530.herokuapp.com/quotes/r", {
+    fetch("http://secret-tor-72530.herokuapp.com/quotes", {
         method: 'GET'
     })
     .then(response => response.json())
