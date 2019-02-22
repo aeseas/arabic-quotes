@@ -1,8 +1,11 @@
 window.onload = () => {
-    fetch("http://secret-tor-72530.herokuapp.com/quotes")
-        .then(response => response.json())
-        .then(json => getQuote(json))
-    }
+    fetch("http://secret-tor-72530.herokuapp.com/quotes/r", {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(json => getQuote(json))
+    .catch(error => alert('Error:', error));
+}
 
     // RANDOM QUOTE
     const getQuote = (quotes) => {
