@@ -9,8 +9,8 @@ It will reload the page so all the quotes are fetched again. Yours will be inclu
 You can also delete the given quote by pushing the delete button.
 
 Made with:
-    * express
-    * mongoose
+⋅⋅* express
+⋅⋅* mongoose
 
 [Link to Heroku Site](https://secret-tor-72530.herokuapp.com/)
 
