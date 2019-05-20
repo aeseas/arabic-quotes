@@ -13,3 +13,9 @@ Made with:
     - mongoose
 
 [Link to Heroku Site](https://secret-tor-72530.herokuapp.com/)
+
+## Install
+    $ git clone https://github.com/aeseas/arabic-quotes.git
+    $ cd arabic-quotes
+    $ npm install
+    $ node index.js
